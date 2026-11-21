@@ -1,0 +1,10 @@
+# Configuración de despliegue en Render (Blueprint).
+services:
+  - type: web
+    name: pc2-caballero-mattias
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true

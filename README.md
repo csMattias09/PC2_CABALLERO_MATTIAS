@@ -40,7 +40,9 @@ En GitHub Actions (`.github/workflows/ci.yml`) se toma de `secrets.SLACK_WEBHOOK
 
 ## Despliegue en la nube
 
-- **Plataforma:** Render (Web Service)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/csMattias09/PC2_CABALLERO_MATTIAS)
+
+- **Plataforma:** Render (Web Service, configurado en `render.yaml`)
 - **URL pública:** _pendiente: https://TU-SERVICIO.onrender.com_
 - **Verificación:** `https://TU-SERVICIO.onrender.com/health` → `{"status":"ok"}`
 
