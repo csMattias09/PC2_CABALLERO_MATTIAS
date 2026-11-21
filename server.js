@@ -29,6 +29,20 @@ const servidor = http.createServer((req, res) => {
     })
   })
 
+  // Raíz: bienvenida con las rutas disponibles.
+  if (url.pathname === '/') {
+    return responder(res, 200, {
+      mensaje: 'Bienvenido a tienda-api (PC02 - Despliegue de Aplicaciones)',
+      alumno: 'Caballero Mattias',
+      rutas: {
+        '/health': 'Liveness: {"status":"ok"}',
+        '/ready': 'Readiness: {"status":"listo"} o 503 si BASE_DE_DATOS_OK=false',
+        '/productos': 'Lista de productos',
+        '/total?ids=1,2&cupon=DESC10': 'Total con cupón e IGV',
+      },
+    })
+  }
+
   // Liveness: el proceso está vivo.
   if (url.pathname === '/health') return responder(res, 200, { status: 'ok' })
 

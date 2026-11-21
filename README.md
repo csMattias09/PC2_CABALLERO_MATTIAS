@@ -12,6 +12,7 @@ API de ejemplo sin dependencias. Requiere Node.js 20 o superior.
 
 | Ruta | Descripción |
 |---|---|
+| `GET /` | Bienvenida con las rutas disponibles |
 | `GET /health` | Liveness: `200 {"status":"ok"}` |
 | `GET /ready` | Readiness: `200 {"status":"listo"}`; `503` si `BASE_DE_DATOS_OK=false` |
 | `GET /productos` | Lista de productos |
