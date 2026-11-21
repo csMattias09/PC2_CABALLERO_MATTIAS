@@ -1,0 +1,41 @@
+name: CI tienda-api
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      ALUMNO: ${{ github.actor }}
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar pruebas
+        run: npm test
+
+      - name: Notificar éxito a Slack
+        if: success()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node notificar.mjs exito "CI de ${{ github.repository }} (${{ github.head_ref || github.ref_name }})"
+
+      - name: Notificar error a Slack
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node notificar.mjs error "Falló el CI de ${{ github.repository }} (${{ github.head_ref || github.ref_name }})"
