@@ -43,8 +43,8 @@ En GitHub Actions (`.github/workflows/ci.yml`) se toma de `secrets.SLACK_WEBHOOK
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/csMattias09/PC2_CABALLERO_MATTIAS)
 
 - **Plataforma:** Render (Web Service, configurado en `render.yaml`)
-- **URL pública:** _pendiente: https://TU-SERVICIO.onrender.com_
-- **Verificación:** `https://TU-SERVICIO.onrender.com/health` → `{"status":"ok"}`
+- **URL pública:** https://pc2-caballero-mattias.onrender.com
+- **Verificación:** https://pc2-caballero-mattias.onrender.com/health → `{"status":"ok"}` (200 OK, comprobado el 21/11/2026)
 
 Configuración usada en Render:
 
